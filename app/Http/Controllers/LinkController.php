@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Link;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
@@ -147,7 +146,6 @@ class LinkController extends Controller
             $message = "url already exist. ";
             $success = 2;
             $hash_match = $this->hashcheck($link->originalurl, $hashed);
-            error_log($hash_match);
 
             // check safe url api only if user last check 1 hr before
             //otherwise show from database field and update database field as well
@@ -172,7 +170,6 @@ class LinkController extends Controller
                     $link->last_check = $current_time;
                     $link->safe_api_response = $response_data;
                     $link->save();
-                    error_log($link->last_check);
                 } catch (\Exception $e) {
                     $message .= " crucial error at system level Please check a. internet is working 2.Firewall/anti virus is not making issue for checking safe api. ";
                     $success = 4;
@@ -221,10 +218,8 @@ class LinkController extends Controller
             $success = 4;
             $safe = false;
         }
-        $errormessage = "";
         $unique_short_code = "";
         $base = 36;
-        //$
         if ($success == 4) { // check any other kind of error return
             $status_code = 500;
             if (isset($response_data)) {
@@ -274,7 +269,6 @@ class LinkController extends Controller
             $link->protocol = $protocol;
             $link->originalurl = $plain_url;
             $link->safe = $safe;
-            // $link->errormessage = $errormessage;
 
             $current_time = Carbon::now();
             $link->last_check = $current_time;
@@ -312,8 +306,7 @@ class LinkController extends Controller
     {
         if (Hash::check($originalurl_db, $hashed)) { //  cecking existinng url from db with inputed url
             $hash_match = true;
-            error_log($hash_match);
-            return true;
+            return $hash_match;
         } else {
             return false;
         }
