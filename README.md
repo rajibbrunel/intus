@@ -36,7 +36,7 @@ http://localhost:8000/something/a0001C
 
 Algorithom & techniques
 1. I have created short url for both safe and unsafe url
-2. I am not creating short link where url has 400,499+ error . 
+2. I am not creating short link where url has 400,499+ error . So curl/http request sent to page first. It has some overehead time.
 3. I have handled and catched error related with internet off, database server is not on etc
 3. After submission url, validation done using laravel url validation method and regex 
 4. If any url already exist in system, i have show the url and it's short code rather generating new url
@@ -54,3 +54,4 @@ and hash related matching function provided inside code
 This number is converted to base 36 based on upto 5 place. For left most place, I used base 26 conversion ignored 0-9 for beautifcation of url.
 13. I used 2 alphanumeric array for this purpose  
 14. Interium period returning response save button become disable
+15. Even if http  or https different protocol used for request of same web page still it consider those two as same page
