@@ -16,7 +16,8 @@ var app = new Vue({
     short_url: String,
     full_url: String,
     safe: Boolean,
-    alternative_short_url: String
+    alternative_short_url: String,
+    api_response: Object
   },
   data: {
     urls: [],
