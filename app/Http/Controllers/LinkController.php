@@ -95,7 +95,7 @@ class LinkController extends Controller
             return response()->json(["success" => $success, "message" => $message, "full_url" => $url_input, "short_url" => "", "alternative_short_url" => $alternative_short_url, "api_response" =>  null, "safe" => $safe])->setStatusCode($status_code);
         } else {
 
-            if (Str::is('*.*', $url)) {
+            if (!Str::is('*.*', $url)) {
                 $message = "provided " . $url . " need to have atleast 1 .(dots) ";
                 return response()->json(["success" => $success, "message" => $message, "full_url" => $url_input, "short_url" => "", "alternative_short_url" => $alternative_short_url, "api_response" =>  null, "safe" => $safe])->setStatusCode($status_code);
             }
