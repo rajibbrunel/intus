@@ -20,15 +20,15 @@ Above command will make the project live
 now open your browser write : http://localhost:8000
 submit a url 
 it will generate two version of short url
-http://localhost:8000/unique6alphanumeric
-http://localhost:8000/something/unique6alphanumeric
+http://localhost:8000/{unique6alphanumeric}
+http://localhost:8000/something/{unique6alphanumeric}
 
 
 You may open other browser and copy paste the short url and check  whether it is okay
 
 Algorithom & techniques
 1. I have created short url for both safe and unsafe url
-2. I am not creating the link site has 400,499+ error . 
+2. I am not creating short link where url has 400,499+ error . 
 3. I have handled and catched error related with internet off, database server is not on etc
 3. After submission url validation done using laravel url validation method 
 4. If any url already exist in system, i have show the url and it's short code rather generating new url

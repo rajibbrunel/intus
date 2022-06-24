@@ -29,7 +29,7 @@
         <div class="col-md-1">
             <button type="button" class="btn btn-success" v-on:click="reset()" > Reset</button>
       </div> 
-    </div>@{{success}}
+    </div>
     <div class="row">
         <div class="col-sm-10">
             <div v-if="success == 0">
