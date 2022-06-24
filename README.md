@@ -55,3 +55,4 @@ This number is converted to base 36 based on upto 5 place. For left most place, 
 13. I used 2 alphanumeric array for this purpose  
 14. Interium period returning response save button become disable
 15. Even if http  or https different protocol used for request of same web page still it consider those two as same page
+16. Screenshot provided for create and existing url
